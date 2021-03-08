@@ -38,3 +38,6 @@ data_fac %>% ggplot(aes(x=fac1, y=fac2, label=name)) + geom_point() + geom_text(
 # 因子分析で次元圧縮した
 # 階層クラスタリングによるサブ市場の構造分析
 plot(hclust(dist(data_fac[,2:3]), method='ward.D'))
+
+
+rm(list=ls(all.names = TRUE))
