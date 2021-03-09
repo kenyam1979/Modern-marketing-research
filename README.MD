@@ -5,7 +5,7 @@ The code here is R based re-write of excecises in a book "Modern Marketing Resea
 # Reference book
 http://www.yuhikaku.co.jp/books/detail/9784641164161
 
-Table of contents
+##Table of contents
 - 第１章　マーケティング意思決定とリサーチ・デザイン
 - 第１部　調査編
   - 第２章　データの取得と整理
