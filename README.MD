@@ -1,11 +1,11 @@
 # Overview
 
-The code here is R based re-write of excecises in a book "Modern Marketing Research". The book uses GUI based tool for R without no explanation of R commands. 
+The code here is R based re-write of exercises in a book "Modern Marketing Research(現代マーケティングリサーチ)". The book uses GUI based tool for R without no explanation of R commands. 
 
 # Reference book
 http://www.yuhikaku.co.jp/books/detail/9784641164161
 
-##Table of contents
+## Table of contents
 - 第１章　マーケティング意思決定とリサーチ・デザイン
 - 第１部　調査編
   - 第２章　データの取得と整理
