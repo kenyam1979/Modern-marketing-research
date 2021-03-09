@@ -1,7 +1,7 @@
 library(tidyverse)
 library(GGally)
 
-data <- read_tsv('http://yuhikaku-nibu.txt-nifty.com/blog/files/senbei.txt', locale = locale(encoding = 'SJIS'))
+data <- read_tsv('http://yuhikaku-nibu.txt-nifty.com/blog/files/senbei.txt', locale = locale(encoding = 'shift-jis'))
 colnames(data) <- c('Name','Taste','Package','Ads','Ingredients','Promotion')
 data$Name <- c('Happy Turn', 'Yukino Yado', 'Potapota Yaki', 'Kuromame Senbei', 'Magari Senbei', 'Cheese Almond', 'Teshioya', 'Bakauke', 'Tsubuyori Komoti', 'Inaka Okaki', 'Umai! Katayaki')
 

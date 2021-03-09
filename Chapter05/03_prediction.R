@@ -1,7 +1,12 @@
 library(tidyverse)
 library(GGally)
 
-data <- read_table2("Chapter4/sales-priec-promo.csv")
+
+# データ読み込み
+data <- read_delim('http://yuhikaku-nibu.txt-nifty.com/blog/files/sales-price-promo.txt', locale=locale(encoding='shift-jis'), 
+                   delim=' ', col_names=FALSE, skip=1, trim_ws=TRUE)
+
+# データ確認
 ggpairs(data)
 
 model <- lm(SALES~PRICE+PROMO_FLG, data)
