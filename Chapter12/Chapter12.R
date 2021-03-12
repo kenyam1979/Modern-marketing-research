@@ -33,6 +33,10 @@ row.names(cleaner_matrix) <- cleaner$brand
 ca_cleaner <- ca(cleaner_matrix)
 plot(ca_cleaner)
 
+library(rgl)
+plot3d.ca(ca_cleaner)
+
+
 ### Clustering by hclust
 plot_cleaner <- bind_cols(dim1=ca_cleaner$rowcoord[,1]*ca_cleaner$rowdist[1], dim2=ca_cleaner$rowcoord[,2]*ca_cleaner$rowdist[2])
 dist_cleaner <- dist(plot_cleaner)
@@ -50,6 +54,8 @@ rownames(camera_matrix) <- camera$brand
 ### CA
 ca_camera <- ca(camera_matrix)
 plot(ca_camera)
+
+plot3d.ca(ca_camera)
 
 ### Clustering by hclust
 plot_camera <- bind_cols(dim1=ca_camera$rowcoord[,1]*ca_camera$rowdist[1], dim2=ca_camera$rowcoord[,2]*ca_camera$rowdist[2])
