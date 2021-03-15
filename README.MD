@@ -30,7 +30,8 @@ http://www.yuhikaku.co.jp/books/detail/9784641164161
     - glm 
 - 第３部　上級編
   - 第11章　市場反応分析２：離散選択モデル
-    - glm, mlogit
+    - glm
+    - mlogit
   - 第12章　ブランドと属性の同時マップ：コレスポンデンス分析
     - hisq.test
     - ca
