@@ -24,5 +24,6 @@ semPaths(object=fit, whatLabels="par")
 
 
 ## 参考 
+## http://www.ec.kansai-u.ac.jp/user/arakit/documents/lavaanTutorial20170124.pdf
 ## https://qiita.com/Masahiro_T/items/d03b9a5a86eee75eb22e
 ## https://ides.hatenablog.com/archive/category/lavaan
