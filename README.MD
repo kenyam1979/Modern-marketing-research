@@ -33,7 +33,7 @@ http://www.yuhikaku.co.jp/books/detail/9784641164161
     - glm
     - mlogit
   - 第12章　ブランドと属性の同時マップ：コレスポンデンス分析
-    - hisq.test
+    - chisq.test
     - ca
   - 第13章　マーケットバスケットとクロスセリング：アソシエーション分析
     - apriori
