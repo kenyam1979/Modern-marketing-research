@@ -33,7 +33,7 @@ model <- specifyModel(text='
   expectation <-> expectation , NA, 1
   satisfaction <-> satisfaction , NA, 1')
 
-
+## SEM実行
 result <- sem(model, cor, N=100)
 
 ## 結果分析
