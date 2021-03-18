@@ -5,13 +5,13 @@ library(broom)
 data <- read_delim('http://yuhikaku-nibu.txt-nifty.com/blog/files/sales-price-promo.txt', locale=locale(encoding='shift-jis'), 
                    delim=' ', col_names=FALSE, skip=1, trim_ws=TRUE)
 data <- data %>% rename(SALES=X1, PRICE=X2, PROMO_FLG=X3)
-data %>% ggplot() + geom_point(aes(x=PRICE, y=SALES))
+data %>% 
+  ggplot(aes(x=PRICE, y=SALES)) + 
+  geom_point()
 
 
 # 回帰分析
 model <- lm(SALES~PRICE, data)
-
-##サマリ
 summary(model)
 
 ### <チェックする観点>
@@ -24,9 +24,18 @@ summary(model)
 confint(model, level = 0.95)
 
 
+
 # 直線の表示
-data %>% ggplot() + geom_point(aes(x=PRICE, y=SALES)) + 
+data %>% 
+  ggplot() + 
+  geom_point(aes(x=PRICE, y=SALES)) + 
   geom_line(data=augment(model), aes(x=PRICE, y=.fitted))
 
-data %>% ggplot(aes(x=PRICE, y=SALES)) + geom_point() + 
+data %>% 
+  ggplot(aes(x=PRICE, y=SALES)) + 
+  geom_point() + 
   stat_smooth(method='lm', col='red')
+
+
+
+rm(list = ls(all.names = TRUE))

@@ -13,24 +13,30 @@ ggcorr(data[,2:6])
 
 # 因子分析
 model <- factanal(x=data[,2:6], factors = 2, scores = 'regression')
+model
 
-##　<何をチェックするか>
-## Uniqueness 独自因子:1-独自因子=共通性(どれだけ説明されているか)
-## Loadings   因子負荷行列　どのファクターがどの程度効いているか
-## Proportion/Cumulative var  寄与率(累積寄与率)
+###　<何をチェックするか>
+### Uniqueness 独自因子:誤差項の分散のこと　共通性:1-独自因子(どれだけ説明されているか)
+### Loadings   因子負荷行列　どのファクターがどの程度効いているか
+### Proportion/Cumulative var  寄与率(累積寄与率)
 
 
 ## Loadingのプロット
 data_frame(dim=rownames(model$loadings), loadings=model$loadings[,1]) %>% 
-  ggplot() + geom_bar(aes(x=dim, y=loadings), stat='identity')
+  ggplot() + 
+  geom_bar(aes(x=dim, y=loadings), stat='identity')
 
 data_frame(dim=rownames(model$loadings), loadings=model$loadings[,2]) %>% 
-  ggplot() + geom_bar(aes(x=dim, y=loadings), stat='identity')
+  ggplot() + 
+  geom_bar(aes(x=dim, y=loadings), stat='identity')
 
 
 ## Perception map (知覚マップ)
-data_fac <- data_frame(name=data$Name, fac1=model$scores[,1], fac2=model$scores[,2]) 
-data_fac %>% ggplot(aes(x=fac1, y=fac2, label=name)) + geom_point() + geom_text(hjust=0, vjust=0)
+data_fac <- bind_cols(name=data$Name, fac1=model$scores[,1], fac2=model$scores[,2]) 
+data_fac %>% 
+  ggplot(aes(x=fac1, y=fac2, label=name)) + 
+  geom_point() + 
+  geom_text(hjust=0, vjust=0)
 
 
 
@@ -38,6 +44,7 @@ data_fac %>% ggplot(aes(x=fac1, y=fac2, label=name)) + geom_point() + geom_text(
 # 因子分析で次元圧縮した
 # 階層クラスタリングによるサブ市場の構造分析
 plot(hclust(dist(data_fac[,2:3]), method='ward.D'))
+
 
 
 rm(list=ls(all.names = TRUE))

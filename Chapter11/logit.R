@@ -6,13 +6,13 @@ binomial_choice <- binomial_choice %>% rename(id=X1, brand1=X2, brand2=X3, price
 
 
 # ブランド選択モデル
-## テキストはあやまりでは?
+## テキストのモデル(おそらくlmの機能を勘違いしている。マイナスは引き算ではない)
 logit <- glm(brand1 ~ price1 - price2, data=binomial_choice, family=binomial(link='logit'))
 summary(logit)
 probit <- glm(brand1 ~ price1 - price2, data=binomial_choice, family=binomial(link='probit'))
 summary(probit)
 
-## こうなるはず
+## 正しいモデル
 binomial_choice <- binomial_choice %>% mutate(diff_p1p2=price1-price2) 
 logit <- glm(brand1 ~ diff_p1p2, data=binomial_choice, family=binomial(link='logit'))
 summary(logit)
@@ -25,3 +25,6 @@ data(Catsup)
 catdata <- mlogit.data(Catsup, choice = "choice", shape = "wide", varying = c(2:13), sep=".")
 mlogit <- mlogit(choice ~ disp + feat + price, data=catdata)
 summary(mlogit)
+
+
+rm(list=ls(all.names=TRUE))
