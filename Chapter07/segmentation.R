@@ -4,6 +4,8 @@ library(tidyverse)
 seg <- read_csv('http://yuhikaku-nibu.txt-nifty.com/blog/files/seg.txt', locale=locale(encoding="shift_jis"))
 seg <- seg %>% rename(age=年齢, sex=性別, expr_yr=投資経験年数, trading_type=取引形態)
 
+## seg <- seg %>% mutate(across(starts_with('q'), ~ .%/%3))
+
 seg %>% 
   group_by(sex) %>% 
   summarize(n=n()) %>% 
@@ -30,6 +32,9 @@ head(sort(fa$loadings[, 4], decreasing=TRUE), 5) # 知人、営業のススメ
 # k-meansでのセグメンテーション
 scores <- fa$scores
 km <- kmeans(scores, centers=4)
+
+## data_frame(f1=fa$scores[,1], f2=fa$scores[,2], cluster=as.factor(km$cluster)) %>%
+  ggplot(aes(x=f1, y=f2, color=cluster)) + geom_point()
 
 km$size # 各サンプルが特定のクラスタに偏っていないか
 km$centers #どの軸に重みがあるか
